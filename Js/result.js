@@ -265,10 +265,12 @@ document.getElementById(
 let Final_mark = user_answer.Mark;
 
 function result(Final_mark) {
+  let image_result = document.querySelector("#image-result");
   if (Final_mark >= 10) {
     document.getElementById("Final_mark").innerHTML = "Congradulation";
   } else {
     document.getElementById("Final_mark").innerHTML = "Failed";
+    image_result.style = "display:none;";
   }
 }
 result(Final_mark);
@@ -359,16 +361,15 @@ const logoutFunction = () => {
 
 logoutFunction(); // Call the function to set up the event listener
 
+let container = document.querySelector("#result_count");
+console.log(container);
+container.style = "display:none";
 let ReviweAnswerbtn = document.getElementById("btn_ReviweAnswer");
 ReviweAnswerbtn.addEventListener("click", () => {
+  container.style = "display:block";
   showanswer(answer); // Call the showAnswer function when the button is clicked
   check_answer(); // Call the checkAnswer function when the button is clicked
 });
-
-
-
-
-
 
 /************************************************ */
 // showanswer(answer);
